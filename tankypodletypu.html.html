@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldofTanks info</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgba(0, 0, 0, 0.836);
+            margin: 0;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgb(0, 0, 0);
+            background-image: url("img/stažený\ soubor.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 120px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        .container-in {
+            display: flex;
+            gap: 20px;
+        }
+
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 15px 0;
+            z-index: 100;
+        }
+
+        .burger-btn span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .burger-btn.open span:nth-child(2) { opacity: 0; }
+        .burger-btn.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        .leftmenu {
+            border: 1px solid silver;
+            border-radius: 25px;
+            background-color: #080838;
+            width: 25%;
+            padding: 10px;
+            margin-top: 18px;
+            margin-bottom: 18px;
+            height: fit-content;
+            transition: all 0.4s ease;
+        }
+
+        .leftmenu h2 { font-size: 1.1em; text-align: center; }
+        .leftmenu ul { list-style-type: none; padding-left: 0; }
+
+        .leftmenu a {
+            text-decoration: none;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: block;
+            padding: 15px;
+            margin: 5px 0;
+            border-radius: 25px;
+            box-shadow: white 0 0 0 1px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .leftmenu a:hover { background-color: rgba(0, 217, 255, 0.342); }
+
+        .pravy { width: 75%; }
+
+        article {
+            border: 1px solid rgb(53, 51, 51);
+            border-radius: 35px;
+            box-shadow: 8px 8px 8px rgba(0,0,0,0.5);
+            padding: 1.5em;
+            margin: 1em 0;
+            background-color: #080838;
+        }
+
+        @media (max-width: 768px) {
+            .container-in { flex-direction: column; }
+
+            .burger-btn { display: flex; }
+
+            .leftmenu {
+                width: 100%;
+                margin-top: 0;
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0;
+                overflow: hidden;
+                transform: translateY(-20px);
+                margin-bottom: 0;
+                border: none;
+            }
+
+            .leftmenu.active {
+                opacity: 1;
+                visibility: visible;
+                max-height: 500px;
+                transform: translateY(0);
+                margin-bottom: 18px;
+                border: 1px solid silver;
+                padding: 15px;
+            }
+
+            .pravy { width: 100%; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header></header>
+
+        <button class="burger-btn" id="burgerIcon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="container-in">
+            <nav class="leftmenu" id="mainMenu">
+                <h2>Odkazy</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tankypodleurovni.html">Tanky podle úrovní</a></li>
+                    <li><a href="mapy.html">Mapy</a></li>
+                    <li><a href="https://tanks.gg/list">Statistiky tanků</a></li>
+                </ul>
+            </nav>
+
+            <div class="pravy">
+                <article>
+                    <h2>🛡️ Typy vozidel</h2>
+
+Ve hře najdete přes 600 historických i prototypových strojů z národů jako Německo, SSSR, USA, Francie, Československo a další. Dělí se do pěti tříd:
+<hr>
+<p>Lehké tanky (LT): Průzkumníci ("spoteři"), kteří odhalují nepřátele pro zbytek týmu.</p>
+<hr>
+<p>Střední tanky (MT): Univerzální stroje vhodné pro podporu i útočné manévry.</p>
+<hr>
+<p>Těžké tanky (HT): "Pancéřové pěsti" určené k přímému boji v první linii.</p>
+<hr>
+<p>Stíhače tanků (TD): Specialisté na ničení nepřátel z dálky s extrémně silnými děly.</p>
+<hr>
+<p>Dělostřelectvo (SPG): Podpora z bezpečné vzdálenosti, která zasahuje cíle shora.</p>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mainMenu');
+            const burger = document.getElementById('burgerIcon');
+            
+            // Přepne menu
+            menu.classList.toggle('active');
+            // Přepne animaci burgeru na křížek
+            burger.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

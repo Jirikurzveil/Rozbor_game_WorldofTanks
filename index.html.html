@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldofTanks info</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgba(0, 0, 0, 0.836);
+            margin: 0;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgb(0, 0, 0);
+            background-image: url("img/stažený\ soubor.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 120px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        .container-in {
+            display: flex;
+            gap: 20px;
+        }
+
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 15px 0;
+            z-index: 100;
+        }
+
+        .burger-btn span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .burger-btn.open span:nth-child(2) { opacity: 0; }
+        .burger-btn.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        .leftmenu {
+            border: 1px solid silver;
+            border-radius: 25px;
+            background-color: #080838;
+            width: 25%;
+            padding: 10px;
+            margin-top: 18px;
+            margin-bottom: 18px;
+            height: fit-content;
+            transition: all 0.4s ease;
+        }
+
+        .leftmenu h2 { font-size: 1.1em; text-align: center; }
+        .leftmenu ul { list-style-type: none; padding-left: 0; }
+
+        .leftmenu a {
+            text-decoration: none;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: block;
+            padding: 15px;
+            margin: 5px 0;
+            border-radius: 25px;
+            box-shadow: white 0 0 0 1px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .leftmenu a:hover { background-color: rgba(0, 217, 255, 0.342); }
+
+        .pravy { width: 75%; }
+
+        article {
+            border: 1px solid rgb(53, 51, 51);
+            border-radius: 35px;
+            box-shadow: 8px 8px 8px rgba(0,0,0,0.5);
+            padding: 1.5em;
+            margin: 1em 0;
+            background-color: #080838;
+        }
+
+        footer {
+            border: 1px solid silver;
+            background-color: #080838;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container-in { flex-direction: column; }
+
+            .burger-btn { display: flex; }
+
+            .leftmenu {
+                width: 100%;
+                margin-top: 0;
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0;
+                overflow: hidden;
+                transform: translateY(-20px);
+                margin-bottom: 0;
+                border: none;
+            }
+
+            .leftmenu.active {
+                opacity: 1;
+                visibility: visible;
+                max-height: 500px;
+                transform: translateY(0);
+                margin-bottom: 18px;
+                border: 1px solid silver;
+                padding: 15px;
+            }
+
+            .pravy { width: 100%; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header></header>
+
+        <button class="burger-btn" id="burgerIcon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="container-in">
+            <nav class="leftmenu" id="mainMenu">
+                <h2>Odkazy</h2>
+                <ul>
+                    <li><a href="tankypodleurovni.html">Tanky podle úrovní</a></li>
+                    <li><a href="tankypodletypu.html">Tanky podle typu</a></li>
+                    <li><a href="mapy.html">Mapy</a></li>
+                    <li><a href="https://tanks.gg/list">Statistiky tanků</a></li>
+                </ul>
+            </nav>
+
+            <div class="pravy">
+                <article>
+                    <h2>Základní info</h2>
+                    <hr>
+                    <p><p>🎮 O čem hra je?</p>
+Jedná se o týmovou akční MMO hru (Massively Multiplayer Online), ve které proti sobě stojí dva týmy hráčů (obvykle 15 vs 15). Cílem je buď zničit všechna nepřátelská vozidla, nebo obsadit základnu protivníka.<hr></p>
+
+<p><p>📈 Progrese a ekonomika</p>
+Tiery (Úrovně): Tanky jsou rozděleny do deseti úrovní (I až X). Začínáte s malými vozidly z počátku 20. století a propracováváte se k modernějším strojům z dob Studené války.
+
+Výzkum: Za bitvy získáváte zkušenosti (XP), za které vyvíjíte lepší moduly (děla, motory) a nové tanky, a kredity, za které si je kupujete.
+
+Free-to-Play: Hra je zdarma, ale nabízí prémiový účet a prémiová vozidla, která urychlují postup hrou (tzv. "pay-to-skip").<hr></p>
+
+<p><p>🔥 Co je nového v roce 2026?</p>
+Hra se neustále vyvíjí a aktuálně (v roce 2026) nabízí několik zajímavých novinek:
+
+Polské stíhače tanků: Nová linie s unikátní mechanikou hlubokého drážkování, která způsobuje obrovské poškození na velmi krátkou vzdálenost.
+
+Modern Armor: Na konzolích i PC se stále více prosazují modernější stroje a vylepšená grafika.
+
+WoT Plus Pro: Nová úroveň předplatného pro nejaktivnější hráče s bonusy do Battle Passu a úpravami záznamů služby.
+
+Vylepšený "Armor Inspector": Přímo ve hře si nyní můžete detailně prohlédnout pancíř tanků a zjistit, kde mají slabiny.<hr></p>
+
+<p>🗺️ Mapy a režimy</p>
+Hra nabízí přes 40 rozmanitých map (pouště, města, lesy). Kromě standardních bitev můžete narazit na:
+
+Frontovou linii: Obrovské bitvy 30 proti 30 na velkých mapách.
+
+Ocelového lovce: Režim ve stylu Battle Royale.
+
+Nápor (Onslaught): Kompetitivní režim pro zkušené hráče.</p>
+                </article>
+            </div>
+        </div>
+
+        <footer>&copy; Jiří Kurzveil 2026</footer>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mainMenu');
+            const burger = document.getElementById('burgerIcon');
+        
+            menu.classList.toggle('active');
+            burger.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

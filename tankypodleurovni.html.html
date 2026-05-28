@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldofTanks info</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgba(0, 0, 0, 0.836);
+            margin: 0;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgb(0, 0, 0);
+            background-image: url("img/stažený\ soubor.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 120px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        .container-in {
+            display: flex;
+            gap: 20px;
+        }
+
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 15px 0;
+            z-index: 100;
+        }
+
+        .burger-btn span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease; 
+        }
+
+        .burger-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .burger-btn.open span:nth-child(2) { opacity: 0; }
+        .burger-btn.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        .leftmenu {
+            border: 1px solid silver;
+            border-radius: 25px;
+            background-color: #080838;
+            width: 25%;
+            padding: 10px;
+            margin-top: 18px;
+            margin-bottom: 18px;
+            height: fit-content;
+            transition: all 0.4s ease;
+        }
+
+        .leftmenu h2 { font-size: 1.1em; text-align: center; }
+        .leftmenu ul { list-style-type: none; padding-left: 0; }
+
+        .leftmenu a {
+            text-decoration: none;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: block;
+            padding: 15px;
+            margin: 5px 0;
+            border-radius: 25px;
+            box-shadow: white 0 0 0 1px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .leftmenu a:hover { background-color: rgba(0, 217, 255, 0.342); }
+
+        .pravy { width: 75%; }
+
+        article {
+            border: 1px solid rgb(53, 51, 51);
+            border-radius: 35px;
+            box-shadow: 8px 8px 8px rgba(0,0,0,0.5);
+            padding: 1.5em;
+            margin: 1em 0;
+            background-color: #080838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        table, th, td {
+            border: 1px solid silver;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(0, 217, 255, 0.2);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .container-in { flex-direction: column; }
+
+            .burger-btn { display: flex; }
+
+            .leftmenu {
+                width: 100%;
+                margin-top: 0;
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0;
+                overflow: hidden;
+                transform: translateY(-20px);
+                margin-bottom: 0;
+                border: none;
+            }
+
+            .leftmenu.active {
+                opacity: 1;
+                visibility: visible;
+                max-height: 500px;
+                transform: translateY(0);
+                margin-bottom: 18px;
+                border: 1px solid silver;
+                padding: 15px;
+            }
+
+            .pravy { width: 100%; }
+            
+            table { font-size: 0.9em; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header></header>
+
+        <button class="burger-btn" id="burgerIcon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="container-in">
+            <nav class="leftmenu" id="mainMenu">
+                <h2>Odkazy</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tankypodletypu.html">Tanky podle typu</a></li>
+                    <li><a href="mapy.html">Mapy</a></li>
+                    <li><a href="https://tanks.gg/list">Statistiky tanků</a></li>
+                </ul>
+            </nav>
+
+            <div class="pravy">
+                <article>
+                    <h2>Rozbor tierů (úrovní) tanků</h2>
+                    <hr>
+                    <h3>1. Raná fáze (Tier I – III): "Pískoviště"</h3>
+<p>Tato fáze slouží k seznámení se základním ovládáním.
+
+Hratelnost: Extrémně vysoké tempo. Tanky mají slabý pancíř a často automatické kanóny (zásobníky). Strategie zde téměř neexistuje, vše je o postřehu.
+
+Klíčový prvek: Malé mapy a bleskové bitvy.
+
+Ekonomika: Zanedbatelné náklady.</p>
+<hr>
+<h3>2. Formativní fáze (Tier IV – V):</h3> Učení rolí
+<p>Zde se poprvé začínají projevovat rozdíly mezi třídami (těžký tank vs. stíhač).
+
+Tier IV: Často považován za nejtěžší pro nováčky, protože matchmaking vás staví proti silným pětkám a šestkám.
+
+Tier V: První skutečné legendy (KV-1, M4 Sherman). Tady se hráč učí úhlovat pancíř a využívat dohled.
+
+Důležitost: Tier V je základním kamenem pro pochopení mechaniky "spottingu" (maskování a detekce).</p>
+<hr>
+
+<h3>3. Zlatá éra (Tier VI – VII):</h3> Balanc a historické stroje
+<p>Pro mnoho hráčů nejpříjemnější část hry.
+
+Tier VI: Nejlepší tier pro začátečníky. Tanky jsou dostatečně silné, aby ovlivnily bitvu, ale opravy jsou levné. Ideální pro trénink posádek.
+
+Tier VII: Trochu nevyrovnaný tier. Některé stroje jsou extrémně silné (T29), jiné trpí při setkání s Tierem IX. Je to zkouška trpělivosti před vstupem mezi elitu.</p>
+<hr>
+
+<h3>4. Kompetitivní střed (Tier VIII):</h3> Ekonomický motor hry
+<p>Nejdůležitější tier v celém World of Tanks.
+
+Charakteristika: Dominance Prémiových tanků. Pokud chcete vydělávat kredity, hrajete osmičky.
+
+Výzva: Potkáváte desítky (Tier X), což vyžaduje znalost slabých míst (weakspotů) a precizní míření.
+
+Vybavení: Zde už je povinností mít plně vytrénovanou posádku a doplňky (ventilace, nabiják).</p>
+<hr>
+
+<h3>5. Vrcholná fáze (Tier IX – X): "Endgame"</h3>
+<p>Tady končí legrace a začíná čistá taktika a maximalizace statistik.
+
+Tier IX: Často označován za "nejlepší matchmaking". Nemůžete potkap nikoho o dvě úrovně výš, ale můžete šikanovat sedmičky. Stroje jsou téměř stejně silné jako desítky.
+
+Tier X: Absolutní vrchol výzkumu. Hra je zde velmi metodická, chyby se trestají okamžitou likvidací.
+
+Ekonomika: Ztrátová zóna. Bez prémiového účtu jsou desítky finančně neudržitelné kvůli drahé munici a opravám.</p>
+<hr>
+
+<h3>6. Speciální kategorie: Tier XI (Nová krev)</h3>
+<p>Tier XI v klasickém výzkumném stromě technicky neexistuje, ale v rámci vývoje WoT se s ním pracuje dvěma způsoby:
+
+<p>A) "Super-desítky" a eventy
+Wargaming občas představuje vozidla, která výkonem přesahují standardní Tier X (např. v rámci testování moderních tanků nebo speciálních režimů jako "Rubikon" či moderní éra v konzolové verzi).
+
+Technologie: Představení mechanik jako kompozitní pancíř, reaktivní pancíř (ERA) nebo hladký vývrt hlavně.</p>
+
+<p>B) Přechod k moderním MBT
+V širším kontextu rozboru (pokud zahrneme i jiné verze WoT nebo plánované aktualizace):
+
+Hratelnost: Extrémní mobilita a stabilizace kanónu za jízdy.</p>
+
+Role: Rozdíl mezi středním a těžkým tankem se stírá – vzniká kategorie Main Battle Tank (MBT).</p>
+                    
+                </article>
+
+                <article>
+                    <h2>Souhrnná tabulka vlastností tierů</h2>
+                    <hr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>Náročnost</th>
+                                <th>Výdělečnost</th>
+                                <th>Hlavní zaměření</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>I - III</td>
+                                <td>Nízká</td>
+                                <td>Neutrální</td>
+                                <td>Základy ovládání</td>
+                            </tr>
+                            <tr>
+                                <td>IV - V</td>
+                                <td>Střední</td>
+                                <td>Pozitivní</td>
+                                <td>Pochopení typů tanků</td>
+                            </tr>
+                            <tr>
+                                <td>VI - VII</td>
+                                <td>Střední</td>
+                                <td>Vysoká</td>
+                                <td>Historické bitvy, trénink</td>
+                            </tr>
+                            <tr>
+                                <td>VIII</td>
+                                <td>Vysoká</td>
+                                <td>Maximální</td>
+                                <td>Výdělek, klanové hraní</td>
+                            </tr>
+                            <tr>
+                                <td>IX - X</td>
+                                <td>Extrémní</td>
+                                <td>Záporná</td>
+                                <td>Kompetitivní hraní, MoE</td>
+                            </tr>
+                            <tr>
+                                <td>XI</td>
+                                <td>Experimentální</td>
+                                <td>Neznámá</td>
+                                <td>Moderní technologie, MBT</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mainMenu');
+            const burger = document.getElementById('burgerIcon');
+            
+            menu.classList.toggle('active');
+            burger.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>
